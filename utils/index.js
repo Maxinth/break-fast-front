@@ -13,6 +13,7 @@ export const _clearData = ({ pushToLogin = true }) => {
 };
 
 export const isAnEmpytyObject = (obj) => {
+  // for formik
   for (var key in obj) {
     if (obj.hasOwnProperty(key)) return false;
   }
@@ -167,14 +168,17 @@ export const getUserToken = () => {
     const token = localStorage.getItem("token");
 
     if (!token) return null;
+    console.log("token = ", token);
     return token;
   }
 };
 
 export const checkExpiredUserToken = () => {
   const decodedToken = jwt_decode(getUserToken());
+  console.log("decodedToken = ", decodedToken);
 
   const tokenExpired = decodedToken.exp < new Date().getTime() / 1000;
+  console.log("tokenExpired = ", tokenExpired);
   if (tokenExpired) {
     showToast("Login required to view page", "info");
     _clearData({ pushToLogin: true });

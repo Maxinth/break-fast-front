@@ -18,8 +18,10 @@ Router.events.on("routeChangeError", () => NProgress.done());
 
 function MyApp({ Component, pageProps }) {
   const store = useStore(pageProps.initialReduxState);
+
   useEffect(() => {
     setAuthorizationHeader();
+    console.log("authorizationHeader set!");
   }, []);
   return (
     <Provider store={store}>
