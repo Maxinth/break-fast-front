@@ -9,24 +9,33 @@
 }
 
 .container {
-  // display: flex;
-  // justify-content: space-between;
-  // align-items: center;
   position: relative;
-  border: 1px solid red;
-
   .icon {
     position: fixed;
+    // top: 100px;
     top: 300px;
     z-index: 100;
+    cursor: pointer;
+    // @include screen("tablet") {
+    //   top: 700px;
+    // }
   }
 
   .boxOne {
-    left: 30px;
+    left: 10px;
+    text-decoration: none;
+    transition: left 0.2s;
+    @include screen("tablet") {
+      left: 30px;
+    }
   }
 
   .boxTwo {
-    right: 30px;
+    right: 10px;
+    transition: left 0.2s;
+    @include screen("tablet") {
+      right: 30px;
+    }
   }
 }
 
