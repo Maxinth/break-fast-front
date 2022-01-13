@@ -7,6 +7,7 @@ export const _clearData = ({ pushToLogin = true }) => {
   pathName && localStorage.clear();
   pathName && sessionStorage.clear();
   if (pushToLogin) {
+    // push to login route
     window.location.href = "/login";
   }
   return false;
