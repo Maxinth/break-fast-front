@@ -39,6 +39,7 @@ export const getToken = () => {
   if (token) {
     const decodedToken = jwt_decode(token);
     const tokenExpired = decodedToken.exp * 1000 === new Date().valueOf();
+    // if token has expired, redirect to login
     if (tokenExpired) {
       _clearData({ pushToLogin: true });
     }
