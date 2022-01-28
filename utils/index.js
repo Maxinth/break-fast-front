@@ -3,6 +3,14 @@ import jwt_decode from "jwt-decode";
 import axios from "axios";
 export const pathName = typeof window !== "undefined" && window;
 
+export const animate = (type, delay) => {
+  const val = {
+    "data-aos": type,
+    "data-aos-delay": delay,
+  };
+  return val;
+};
+
 export const _clearData = ({ pushToLogin = true }) => {
   pathName && localStorage.clear();
   pathName && sessionStorage.clear();

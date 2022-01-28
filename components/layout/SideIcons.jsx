@@ -4,6 +4,7 @@ import chat from "../../public/images/chat.svg";
 import Image from "next/image";
 import styles from "../../public/css/Signup.module.scss";
 
+
 const SideIcons = ({ children }) => {
   return (
     <section className={styles.container}>

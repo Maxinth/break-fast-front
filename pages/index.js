@@ -37,12 +37,22 @@ import { SubscribeEmailSchema } from "../validation";
 import { useFormik } from "formik";
 import { GuestSubscription } from "../redux/actions";
 import { useSelector } from "react-redux";
+import { animate } from "../utils/";
 
 export default function Home() {
   const router = useRouter();
 
   const [modalVisible, setVisible] = useState(false);
   const [email, setEmail] = useState("");
+
+  // custom function to handle animations
+  // const animate = (type, delay) => {
+  //   const val = {
+  //     "data-aos": type,
+  //     "data-aos-delay": delay,
+  //   };
+  //   return val;
+  // };
 
   const settings = {
     dots: true,
@@ -77,17 +87,12 @@ export default function Home() {
       <div className={styles.container}>
         <div className={styles.body}>
           <div className={styles.header}>
-            <h1
-              data-aos-easing="ease-out-back"
-              data-aos-duration="400"
-              data-aos-delay="0"
-              data-aos="fade-in"
-            >
+            <h1 {...animate("zoom-in", "100")}>
               Kreate. Upload. And Sell <br /> your{" "}
               <span className={styles.digital}>Digital Product</span> <br />
               Online under Minutes. For Free
             </h1>
-            <p className={styles.subHeader}>
+            <p className={styles.subHeader} {...animate("fade-up", "300")}>
               Upload your Ebooks, Online Courses, Video Courses, Subscription
               plans, <br /> and Memberships in an online all-in-one platform for
               free and accept payment from anywhere in the world.
@@ -98,7 +103,10 @@ export default function Home() {
               and accept payment from anywhere in the world.
             </p>
 
-            <div className={styles.inputContainer}>
+            <div
+              className={styles.inputContainer}
+              {...animate("fade-up", "400")}
+            >
               <InputButton
                 name="email"
                 placeholder="Enter your email..."
@@ -115,7 +123,7 @@ export default function Home() {
               />
             </div>
 
-            <div className={styles.benefits}>
+            <div className={styles.benefits} {...animate("fade-up", "450")}>
               <span className={styles.benefitSpan}>Signup for free</span>
               <span className={styles.benefitSpan}>• Easy setup</span>
               <span className={styles.benefitSpan}>• Fast payout</span>
