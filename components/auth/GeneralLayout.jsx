@@ -3,6 +3,7 @@ import { Layout } from "..";
 import { FacebookBtn, GoogleBtn } from "../../utils";
 import styles from "./GeneralLayout.module.scss";
 import FacebookLogin from "react-facebook-login";
+import { useRouter } from "next/router";
 
 export const GeneralLayout = ({
   Form,
@@ -17,6 +18,7 @@ export const GeneralLayout = ({
   signupStyle,
   isForm = true,
 }) => {
+  const router = useRouter();
   const responseFacebook = (response) => {
     console.log(response);
   };
@@ -46,11 +48,22 @@ export const GeneralLayout = ({
                     <div className="cursor">
                       {/* <Image src={FacebookBtn} alt="sign up with facebook" /> */}
                       <FacebookLogin
-                        appId="3239413879679242"
-                        autoLoad={true}
+                        appId="1308158836325927" // initial
+                        // appId="429932695011083" // kreatesell login
+                        // autoLoad={true}
                         fields="name,email,picture"
                         onClick={componentClicked}
                         callback={responseFacebook}
+                        render={(renderProps) => (
+                          // <Image
+                          //   src={FacebookBtn}
+                          //   onClick={renderProps.onClick}
+                          //   alt="sign up with facebook"
+                          // />
+                          <button onClick={renderProps.onClick}>
+                            This is my custom FB button
+                          </button>
+                        )}
                       />
                     </div>
                   </div>

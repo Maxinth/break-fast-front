@@ -13,6 +13,7 @@ import { AffiliateTerms } from "./AffiliateTerms";
 import { useState } from "react";
 import { useRouter } from "next/router";
 import { isPathMatched } from "./data/getPath";
+import PropTypes from "prop-types";
 
 const Legal = ({ defaultActiveKey }) => {
   const { TabPane } = Tabs;
@@ -90,6 +91,10 @@ const Legal = ({ defaultActiveKey }) => {
       </div>
     </Layout>
   );
+};
+
+Legal.propTypes = {
+  defaultActiveKey: PropTypes.string,
 };
 
 export default Legal;
